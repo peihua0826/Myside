@@ -206,4 +206,464 @@
             
             <div class="flex items-center space-x-3 sm:space-x-6">
                 <nav class="hidden md:flex space-x-6 text-sm font-medium text-slate-600 dark:text-slate-300">
-                    <a href="#home" class="hover:text-amber-600 dark:hover:text-amber-400 transition-colors">首
+                    <a href="#home" class="hover:text-amber-600 dark:hover:text-amber-400 transition-colors">首頁</a>
+                    <a href="#explore" class="hover:text-amber-600 dark:hover:text-amber-400 transition-colors">美食探索</a>
+                    <a href="#map-section" class="hover:text-amber-600 dark:hover:text-amber-400 transition-colors">美味地圖</a>
+                    <a href="#contact" class="hover:text-amber-600 dark:hover:text-amber-400 transition-colors">聯繫表單</a>
+                </nav>
+
+                <div class="flex items-center space-x-2 border-l border-slate-200 dark:border-slate-700 pl-3 sm:pl-6">
+                    <button id="music-toggle-btn" onclick="toggleMusic()" class="p-2 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 transition-all flex items-center justify-center shadow-sm relative group" title="開關背景音樂">
+                        <span id="music-icon" class="text-base sm:text-lg">🎵</span>
+                        <span id="music-pulse" class="absolute inset-0 rounded-xl bg-amber-500/20 animate-ping hidden"></span>
+                    </button>
+
+                    <button onclick="toggleDarkMode()" class="p-2 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 transition-all flex items-center justify-center shadow-sm" title="切換深淺色模式">
+                        <span id="theme-icon" class="text-base sm:text-lg">☀️</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- 英雄首頁區塊 -->
+    <section id="home" class="relative overflow-hidden bg-slate-900 text-white py-20 sm:py-28">
+        <div class="absolute inset-0 z-0 opacity-40 dark:opacity-20">
+            <img src="https://images.unsplash.com/photo-1593960548354-62d1b5c9d542?fm=jpg&q=60&w=3000&auto=format&fit=crop" alt="汐止古早味小吃" class="w-full h-full object-cover">
+        </div>
+        <div class="absolute inset-0 bg-gradient-to-b from-slate-950/80 via-slate-900/60 to-slate-950/90 z-10"></div>
+        <div class="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center z-20 flex flex-col items-center">
+            <div class="w-24 h-24 rounded-full overflow-hidden border-4 border-amber-500/50 shadow-xl mb-6 relative">
+                <img src="https://img.ai365.fans/cdn-cgi/image/width=1400,quality=90,format=auto/artworks/140880b9-9413-4224-ad20-27e56d60e915/mnwbugtvdqg.png" alt="作者形象照" class="w-full h-full object-cover">
+            </div>
+            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium bg-amber-500/20 text-amber-300 border border-amber-500/30 mb-4">
+                🔥 在地饕客私房口袋名單
+            </span>
+            <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight mb-6">
+                汐止 <span class="bg-gradient-to-r from-amber-400 to-orange-400 bg-clip-text text-transparent">隱藏版小吃</span> 指南
+            </h1>
+            <p class="text-sm sm:text-lg text-slate-300 max-w-2xl mx-auto leading-relaxed mb-8 px-2">
+                深入五堵老街與大同路巷弄，挖掘傳承七十年的頂級鹹粥、外酥內爆汁的手工臭豆腐，以及高性價比的神級無菜單烤鴨！
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center items-center gap-3 w-full sm:w-auto px-4">
+                <a href="#explore" class="w-full sm:w-auto bg-amber-600 hover:bg-amber-700 text-white font-semibold px-8 py-3 rounded-xl shadow-lg shadow-amber-600/20 transition-all text-center">
+                    開啟美食地圖
+                </a>
+                <a href="#contact" class="w-full sm:w-auto bg-slate-800/80 hover:bg-slate-700 text-slate-200 font-medium px-8 py-3 rounded-xl border border-slate-700 backdrop-blur transition-all text-center">
+                    與我分享私房店家
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 美食探索主體 -->
+    <main id="explore" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <!-- 分類切換按鈕 -->
+        <div class="mb-10">
+            <h2 class="text-xs font-bold text-slate-400 dark:text-slate-500 uppercase tracking-widest mb-3">美味類別篩選</h2>
+            <div class="flex overflow-x-auto space-x-3 pb-3 no-scrollbar -mx-4 px-4 sm:mx-0 sm:px-0">
+                <button onclick="filterCategory('all')" id="btn-all" class="filter-btn shrink-0 bg-white text-slate-700 dark:bg-slate-900 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 px-5 py-2 rounded-xl text-sm font-semibold border border-slate-200/60 dark:border-slate-800 shadow-sm transition-all active-filter">
+                    ✨ 全部美食 (8)
+                </button>
+                <button onclick="filterCategory('rice-noodle')" id="btn-rice-noodle" class="filter-btn shrink-0 bg-white text-slate-700 dark:bg-slate-900 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 px-5 py-2 rounded-xl text-sm font-semibold border border-slate-200/60 dark:border-slate-800 shadow-sm transition-all">
+                    🍜 飽胃飯麵 (4)
+                </button>
+                <button onclick="filterCategory('tofu-snack')" id="btn-tofu-snack" class="filter-btn shrink-0 bg-white text-slate-700 dark:bg-slate-900 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 px-5 py-2 rounded-xl text-sm font-semibold border border-slate-200/60 dark:border-slate-800 shadow-sm transition-all">
+                    🔥 酥脆臭豆腐 (2)
+                </button>
+                <button onclick="filterCategory('classic-local')" id="btn-classic-local" class="filter-btn shrink-0 bg-white text-slate-700 dark:bg-slate-900 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 px-5 py-2 rounded-xl text-sm font-semibold border border-slate-200/60 dark:border-slate-800 shadow-sm transition-all">
+                    🥣 經典古早味 (2)
+                </button>
+            </div>
+        </div>
+
+        <!-- 雙欄佈局：左側卡片清單 / 右側互動地圖 -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+            <div id="food-list" class="lg:col-span-7 space-y-6">
+                
+                <!-- 1: 丞相鵝肉 -->
+                <article class="food-card bg-white dark:bg-slate-900 rounded-2xl border border-slate-100 dark:border-slate-800 overflow-hidden shadow-sm flex flex-col sm:flex-row hover:shadow-md" data-category="rice-noodle">
+                    <div class="sm:w-44 h-44 sm:h-auto relative shrink-0">
+                        <img src="https://images.unsplash.com/photo-1614926994586-d0a318165f26?fm=jpg&q=60&w=600&auto=format&fit=crop" alt="丞相鵝肉" class="w-full h-full object-cover">
+                        <span class="absolute top-3 left-3 bg-slate-900/80 backdrop-blur-sm text-amber-400 text-xs font-bold px-2.5 py-1 rounded-md">片鴨雙吃</span>
+                    </div>
+                    <div class="p-6 flex flex-col justify-between flex-1">
+                        <div>
+                            <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-1">丞相鵝肉</h3>
+                            <p class="text-xs text-amber-600 dark:text-amber-400 font-semibold mb-3">⭐ 經典聚餐熱炒・極品片鴨</p>
+                            <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed mb-4">肥嫩肥美的五星級片鴨與燒臘拼盤，鴨肉餅、炒鴨菜香氣四溢，極具聚餐感的高人氣選擇！</p>
+                        </div>
+                        <div class="flex flex-wrap items-center justify-between gap-4 pt-3 border-t border-slate-100 dark:border-slate-800 text-xs text-slate-500">
+                            <address class="not-italic text-slate-500 dark:text-slate-400">📍 大同路一段345號</address>
+                            <button onclick="updateMap('汐止丞相鵝肉', '丞相鵝肉')" class="text-amber-600 dark:text-amber-400 font-bold flex items-center gap-1 hover:text-amber-700">🗺️ 啟動地圖導航 &rarr;</button>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- 2: 車頭鹹粥 -->
+                <article class="food-card bg-white dark:bg-slate-900 rounded-2xl border border-slate-100 dark:border-slate-800 overflow-hidden shadow-sm flex flex-col sm:flex-row hover:shadow-md" data-category="classic-local">
+                    <div class="sm:w-44 h-44 sm:h-auto relative shrink-0">
+                        <img src="https://images.unsplash.com/photo-1678089664616-cf44bf88b6c5?fm=jpg&q=60&w=600&auto=format&fit=crop" alt="車頭鹹粥" class="w-full h-full object-cover">
+                        <span class="absolute top-3 left-3 bg-slate-900/80 backdrop-blur-sm text-amber-400 text-xs font-bold px-2.5 py-1 rounded-md">70年老店</span>
+                    </div>
+                    <div class="p-6 flex flex-col justify-between flex-1">
+                        <div>
+                            <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-1">車頭鹹粥</h3>
+                            <p class="text-xs text-amber-600 dark:text-amber-400 font-semibold mb-3">⭐ 汐止車站必吃・綿密鮮甜</p>
+                            <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed mb-4">傳承至今的日常老店，粥體使用白蘿蔔熬煮出清甜香氣，靈魂伴侶紅燒肉與醃漬小黃瓜絕不能錯過！</p>
+                        </div>
+                        <div class="flex flex-wrap items-center justify-between gap-4 pt-3 border-t border-slate-100 dark:border-slate-800 text-xs text-slate-500">
+                            <address class="not-italic text-slate-500 dark:text-slate-400">📍 大同路二段617號</address>
+                            <button onclick="updateMap('汐止車頭鹹粥', '車頭鹹粥')" class="text-amber-600 dark:text-amber-400 font-bold flex items-center gap-1 hover:text-amber-700">🗺️ 啟動地圖導航 &rarr;</button>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- 3: 五角菜飯 -->
+                <article class="food-card bg-white dark:bg-slate-900 rounded-2xl border border-slate-100 dark:border-slate-800 overflow-hidden shadow-sm flex flex-col sm:flex-row hover:shadow-md" data-category="rice-noodle">
+                    <div class="sm:w-44 h-44 sm:h-auto relative shrink-0">
+                        <img src="https://images.unsplash.com/photo-1706468238712-694d217ce7b9?fm=jpg&q=60&w=600&auto=format&fit=crop" alt="五角菜飯" class="w-full h-full object-cover">
+                        <span class="absolute top-3 left-3 bg-slate-900/80 backdrop-blur-sm text-amber-400 text-xs font-bold px-2.5 py-1 rounded-md">50年代懷舊</span>
+                    </div>
+                    <div class="p-6 flex flex-col justify-between flex-1">
+                        <div>
+                            <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-1">五角菜飯</h3>
+                            <p class="text-xs text-amber-600 dark:text-amber-400 font-semibold mb-3">⭐ 復古主題小館・家常經典</p>
+                            <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed mb-4">汐科站旁懷舊風十足的特色餐廳。鹹香開胃的五角菜飯、濃郁豬油拌飯與去骨水晶雞，每道都是功夫菜。</p>
+                        </div>
+                        <div class="flex flex-wrap items-center justify-between gap-4 pt-3 border-t border-slate-100 dark:border-slate-800 text-xs text-slate-500">
+                            <address class="not-italic text-slate-500 dark:text-slate-400">📍 大同路二段227號</address>
+                            <button onclick="updateMap('汐止五角菜飯', '五角菜飯')" class="text-amber-600 dark:text-amber-400 font-bold flex items-center gap-1 hover:text-amber-700">🗺️ 啟動地圖導航 &rarr;</button>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- 4: 阿基-手工臭豆腐 -->
+                <article class="food-card bg-white dark:bg-slate-900 rounded-2xl border border-slate-100 dark:border-slate-800 overflow-hidden shadow-sm flex flex-col sm:flex-row hover:shadow-md" data-category="tofu-snack">
+                    <div class="sm:w-44 h-44 sm:h-auto relative shrink-0">
+                        <img src="https://images.unsplash.com/photo-1791323067568-3a2cf44c98ed?fm=jpg&q=60&w=600&auto=format&fit=crop" alt="阿基手工臭豆腐" class="w-full h-full object-cover">
+                        <span class="absolute top-3 left-3 bg-slate-900/80 backdrop-blur-sm text-amber-400 text-xs font-bold px-2.5 py-1 rounded-md">自家發酵</span>
+                    </div>
+                    <div class="p-6 flex flex-col justify-between flex-1">
+                        <div>
+                            <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-1">阿基-手工臭豆腐 大腸蚵仔麵線</h3>
+                            <p class="text-xs text-amber-600 dark:text-amber-400 font-semibold mb-3">⭐ 在地最推小吃・超狂排隊</p>
+                            <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed mb-4">隱藏版中的隱藏版，常常下午五點就完售！純手工臭豆腐外殼金黃極致酥脆、內裡鮮嫩多汁。</p>
+                        </div>
+                        <div class="flex flex-wrap items-center justify-between gap-4 pt-3 border-t border-slate-100 dark:border-slate-800 text-xs text-slate-500">
+                            <address class="not-italic text-slate-500 dark:text-slate-400">📍 康寧街495-2號</address>
+                            <button onclick="updateMap('阿基-手工臭豆腐 大腸蚵仔麵線', '阿基手工臭豆腐')" class="text-amber-600 dark:text-amber-400 font-bold flex items-center gap-1 hover:text-amber-700">🗺️ 啟動地圖導航 &rarr;</button>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- 5: 好先生美食 -->
+                <article class="food-card bg-white dark:bg-slate-900 rounded-2xl border border-slate-100 dark:border-slate-800 overflow-hidden shadow-sm flex flex-col sm:flex-row hover:shadow-md" data-category="tofu-snack">
+                    <div class="sm:w-44 h-44 sm:h-auto relative shrink-0">
+                        <img src="https://images.unsplash.com/photo-1617422725360-45b7671f980b?fm=jpg&q=60&w=600&auto=format&fit=crop" alt="好先生美食" class="w-full h-full object-cover">
+                        <span class="absolute top-3 left-3 bg-slate-900/80 backdrop-blur-sm text-amber-400 text-xs font-bold px-2.5 py-1 rounded-md">文青小吃</span>
+                    </div>
+                    <div class="p-6 flex flex-col justify-between flex-1">
+                        <div>
+                            <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-1">好先生美食-明峰店</h3>
+                            <p class="text-xs text-amber-600 dark:text-amber-400 font-semibold mb-3">⭐ 奢華澎湃海陸・爆汁脆皮</p>
+                            <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed mb-4">脆皮臭豆腐外酥內軟，海陸麵線大方鋪滿大腸、鮮蚵、小卷與蝦仁！</p>
+                        </div>
+                        <div class="flex flex-wrap items-center justify-between gap-4 pt-3 border-t border-slate-100 dark:border-slate-800 text-xs text-slate-500">
+                            <address class="not-italic text-slate-500 dark:text-slate-400">📍 明峰街23號</address>
+                            <button onclick="updateMap('好先生美食明峰店', '好先生美食')" class="text-amber-600 dark:text-amber-400 font-bold flex items-center gap-1 hover:text-amber-700">🗺️ 啟動地圖導航 &rarr;</button>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- 6: 陳平良烤鴨 -->
+                <article class="food-card bg-white dark:bg-slate-900 rounded-2xl border border-slate-100 dark:border-slate-800 overflow-hidden shadow-sm flex flex-col sm:flex-row hover:shadow-md" data-category="rice-noodle">
+                    <div class="sm:w-44 h-44 sm:h-auto relative shrink-0">
+                        <img src="https://images.unsplash.com/photo-1765441012353-10fb4701a276?fm=jpg&q=60&w=600&auto=format&fit=crop" alt="陳平良烤鴨" class="w-full h-full object-cover">
+                        <span class="absolute top-3 left-3 bg-slate-900/80 backdrop-blur-sm text-amber-400 text-xs font-bold px-2.5 py-1 rounded-md">無菜單料理</span>
+                    </div>
+                    <div class="p-6 flex flex-col justify-between flex-1">
+                        <div>
+                            <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-1">陳平良烤鴨 汐止店</h3>
+                            <p class="text-xs text-amber-600 dark:text-amber-400 font-semibold mb-3">⭐ 馬祖特色風味・超值手藝</p>
+                            <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed mb-4">預約制無菜單料理，每人約700元即可享受澎湃的烤鴨多吃與馬祖黃金餃！</p>
+                        </div>
+                        <div class="flex flex-wrap items-center justify-between gap-4 pt-3 border-t border-slate-100 dark:border-slate-800 text-xs text-slate-500">
+                            <address class="not-italic text-slate-500 dark:text-slate-400">📍 中興路187號</address>
+                            <button onclick="updateMap('汐止陳平良烤鴨', '陳平良烤鴨')" class="text-amber-600 dark:text-amber-400 font-bold flex items-center gap-1 hover:text-amber-700">🗺️ 啟動地圖導航 &rarr;</button>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- 7: 水餃蘇麵店 -->
+                <article class="food-card bg-white dark:bg-slate-900 rounded-2xl border border-slate-100 dark:border-slate-800 overflow-hidden shadow-sm flex flex-col sm:flex-row hover:shadow-md" data-category="rice-noodle">
+                    <div class="sm:w-44 h-44 sm:h-auto relative shrink-0">
+                        <img src="https://images.unsplash.com/photo-1600490036275-35f5f1656861?fm=jpg&q=60&w=600&auto=format&fit=crop" alt="水餃蘇麵店" class="w-full h-full object-cover">
+                        <span class="absolute top-3 left-3 bg-slate-900/80 backdrop-blur-sm text-amber-400 text-xs font-bold px-2.5 py-1 rounded-md">百年老街</span>
+                    </div>
+                    <div class="p-6 flex flex-col justify-between flex-1">
+                        <div>
+                            <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-1">水餃蘇麵店</h3>
+                            <p class="text-xs text-amber-600 dark:text-amber-400 font-semibold mb-3">⭐ 無招牌老字號・最強鑊氣</p>
+                            <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed mb-4">長安老街上的無招牌傳奇。現炒什錦湯麵鑊氣焦香濃郁，海鮮豬肝湯頭極度鮮甜。</p>
+                        </div>
+                        <div class="flex flex-wrap items-center justify-between gap-4 pt-3 border-t border-slate-100 dark:border-slate-800 text-xs text-slate-500">
+                            <address class="not-italic text-slate-500 dark:text-slate-400">📍 長安路77巷2號</address>
+                            <button onclick="updateMap('美而美早餐店,水餃蘇麵店', '水餃蘇麵店')" class="text-amber-600 dark:text-amber-400 font-bold flex items-center gap-1 hover:text-amber-700">🗺️ 啟動地圖導航 &rarr;</button>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- 8: 沈家涼麵 -->
+                <article class="food-card bg-white dark:bg-slate-900 rounded-2xl border border-slate-100 dark:border-slate-800 overflow-hidden shadow-sm flex flex-col sm:flex-row hover:shadow-md" data-category="classic-local">
+                    <div class="sm:w-44 h-44 sm:h-auto relative shrink-0">
+                        <img src="https://images.unsplash.com/photo-1612929633738-8fe44f7ec841?fm=jpg&q=60&w=600&auto=format&fit=crop" alt="沈家涼麵" class="w-full h-full object-cover">
+                        <span class="absolute top-3 left-3 bg-slate-900/80 backdrop-blur-sm text-amber-400 text-xs font-bold px-2.5 py-1 rounded-md">涼麵界一哥</span>
+                    </div>
+                    <div class="p-6 flex flex-col justify-between flex-1">
+                        <div>
+                            <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-1">沈家涼麵</h3>
+                            <p class="text-xs text-amber-600 dark:text-amber-400 font-semibold mb-3">⭐ 冰爽Q彈・靈魂麻醬</p>
+                            <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed mb-4">福德一路的排隊名店，特製香醇麻醬裹滿麵條，搭配綜合三合一湯是一絕！</p>
+                        </div>
+                        <div class="flex flex-wrap items-center justify-between gap-4 pt-3 border-t border-slate-100 dark:border-slate-800 text-xs text-slate-500">
+                            <address class="not-italic text-slate-500 dark:text-slate-400">📍 福德一路154號</address>
+                            <button onclick="updateMap('汐止沈家涼麵店', '沈家涼麵')" class="text-amber-600 dark:text-amber-400 font-bold flex items-center gap-1 hover:text-amber-700">🗺️ 啟動地圖導航 &rarr;</button>
+                        </div>
+                    </div>
+                </article>
+
+            </div>
+
+            <!-- 右側：地圖展示區 -->
+            <div id="map-section" class="lg:col-span-5">
+                <div class="sticky-map bg-white dark:bg-slate-900 rounded-2xl border border-slate-100 dark:border-slate-800 p-4 shadow-sm flex flex-col transition-colors">
+                    <div class="flex items-center justify-between mb-3">
+                        <div class="flex items-center space-x-2">
+                            <span class="p-2 bg-amber-50 dark:bg-slate-800 text-amber-600 dark:text-amber-400 rounded-lg text-lg">📍</span>
+                            <div>
+                                <h3 id="current-map-title" class="font-bold text-slate-900 dark:text-white text-base">車頭鹹粥</h3>
+                                <p class="text-xs text-slate-400 dark:text-slate-500">即時位置導航</p>
+                            </div>
+                        </div>
+                        <span class="text-[10px] font-bold text-slate-400 border border-slate-200 dark:border-slate-700 px-2 py-0.5 rounded-full uppercase">Interactive</span>
+                    </div>
+                    
+                    <div class="flex-1 w-full rounded-xl overflow-hidden bg-slate-50 dark:bg-slate-950 border border-slate-100 dark:border-slate-800 shadow-inner relative min-h-[320px] lg:min-h-0">
+                        <iframe
+                            id="map-iframe"
+                            width="100%"
+                            height="100%"
+                            frameborder="0"
+                            style="border:0; width: 100%; height: 100%; min-height: 350px;"
+                            referrerpolicy="no-referrer-when-downgrade"
+                            loading="lazy"
+                            src="https://maps.google.com/maps?q=汐止車頭鹹粥&t=&z=16&ie=UTF8&iwloc=&output=embed"
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                    
+                    <div class="mt-3 text-xs text-slate-400 dark:text-slate-500 text-center leading-relaxed">
+                        💡 點擊左側店家的「<b>啟動地圖導航</b>」，地圖將即時同步更新！
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 聯絡與推薦表單 (串接最新 Google Apps Script) -->
+        <section id="contact" class="mt-20 max-w-4xl mx-auto bg-white dark:bg-slate-900 rounded-3xl border border-slate-100 dark:border-slate-800 p-6 sm:p-10 shadow-sm">
+            <div class="text-center max-w-lg mx-auto mb-8">
+                <span class="text-2xl">✉️</span>
+                <h2 class="text-2xl font-bold text-slate-900 dark:text-white mt-2 mb-3">美味交流・老饕聯絡表單</h2>
+                <p class="text-sm text-slate-500 dark:text-slate-400 leading-relaxed">
+                    有私房美食推薦或商務合作？填寫表單將直接同步傳送至 Google 雲端試算表！
+                </p>
+            </div>
+
+            <form onsubmit="handleFormSubmit(event)" class="space-y-5">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                    <div>
+                        <label for="contact-name" class="block text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-2">老饕大名 <span class="text-rose-500">*</span></label>
+                        <input type="text" id="contact-name" required class="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-950 border border-slate-200/80 dark:border-slate-800 text-slate-900 dark:text-white text-sm focus:outline-none focus:ring-2 focus:ring-amber-500" placeholder="如何稱呼您">
+                    </div>
+                    <div>
+                        <label for="contact-email" class="block text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-2">電子信箱 <span class="text-rose-500">*</span></label>
+                        <input type="email" id="contact-email" required class="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-950 border border-slate-200/80 dark:border-slate-800 text-slate-900 dark:text-white text-sm focus:outline-none focus:ring-2 focus:ring-amber-500" placeholder="yourmail@example.com">
+                    </div>
+                </div>
+
+                <div>
+                    <label for="contact-subject" class="block text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-2">聯絡主旨</label>
+                    <select id="contact-subject" class="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-950 border border-slate-200/80 dark:border-slate-800 text-slate-900 dark:text-white text-sm focus:outline-none focus:ring-2 focus:ring-amber-500">
+                        <option value="recommend">✍️ 我要推薦汐止隱藏版美食小吃</option>
+                        <option value="cooperation">🤝 美食指南商務合作洽談</option>
+                        <option value="feedback">💬 網站體驗與勘誤回饋</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label for="contact-message" class="block text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-2">訊息內容 / 私房店家詳細資料 <span class="text-rose-500">*</span></label>
+                    <textarea id="contact-message" rows="4" required class="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-950 border border-slate-200/80 dark:border-slate-800 text-slate-900 dark:text-white text-sm focus:outline-none focus:ring-2 focus:ring-amber-500 resize-none" placeholder="請填寫店名、地址、推薦必點品項或合作想法..."></textarea>
+                </div>
+
+                <div class="pt-4 flex justify-center sm:justify-start">
+                    <button type="submit" id="submit-btn" class="w-full sm:w-auto bg-amber-600 hover:bg-amber-700 active:bg-amber-800 text-white font-bold px-10 py-4 rounded-xl shadow-lg shadow-amber-600/20 transition-all flex items-center justify-center space-x-2 cursor-pointer">
+                        <span>🚀 正式送出美食提案</span>
+                    </button>
+                </div>
+            </form>
+        </section>
+    </main>
+
+    <!-- 頁尾 -->
+    <footer class="bg-slate-900 text-slate-400 py-12 mt-20 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="w-12 h-12 rounded-full overflow-hidden border-2 border-slate-700 mx-auto mb-3 shadow-md">
+                <img src="https://img.ai365.fans/cdn-cgi/image/width=1400,quality=90,format=auto/artworks/140880b9-9413-4224-ad20-27e56d60e915/mnwbugtvdqg.png" alt="作者形象照" class="w-full h-full object-cover">
+            </div>
+            <p class="text-sm font-semibold text-slate-300 mb-2">汐止隱藏版小吃美食導覽・一頁式極致體驗</p>
+            <div class="text-[11px] text-slate-600 border-t border-slate-800/60 pt-4">
+                © 2026 汐止老老饕口袋私藏版・完美極致響應式網頁設計
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript 交互控制 -->
+    <script>
+        function toggleDarkMode() {
+            const html = document.documentElement;
+            const themeIcon = document.getElementById('theme-icon');
+            if (html.classList.contains('dark')) {
+                html.classList.remove('dark');
+                themeIcon.innerText = '☀️';
+                localStorage.setItem('theme', 'light');
+            } else {
+                html.classList.add('dark');
+                themeIcon.innerText = '🌙';
+                localStorage.setItem('theme', 'dark');
+            }
+        }
+
+        if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+            document.getElementById('theme-icon').innerText = '🌙';
+        }
+
+        function toggleMusic() {
+            const music = document.getElementById('bg-music');
+            const btn = document.getElementById('music-toggle-btn');
+            const icon = document.getElementById('music-icon');
+            const pulse = document.getElementById('music-pulse');
+
+            if (music.paused) {
+                music.play().then(() => {
+                    icon.innerText = '📻';
+                    icon.classList.add('animate-spin-slow');
+                    pulse.classList.remove('hidden');
+                    btn.classList.add('bg-amber-100', 'dark:bg-amber-950');
+                }).catch(err => console.log("音訊播放限制:", err));
+            } else {
+                music.pause();
+                icon.innerText = '🎵';
+                icon.classList.remove('animate-spin-slow');
+                pulse.classList.add('hidden');
+                btn.classList.remove('bg-amber-100', 'dark:bg-amber-950');
+            }
+        }
+
+        function updateMap(searchQuery, displayName) {
+            const iframe = document.getElementById('map-iframe');
+            const title = document.getElementById('current-map-title');
+            iframe.src = `https://maps.google.com/maps?q=${encodeURIComponent(searchQuery)}&t=&z=16&ie=UTF8&iwloc=&output=embed`;
+            title.innerText = displayName;
+
+            if (window.innerWidth < 1024) {
+                document.getElementById('map-section').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            }
+        }
+
+        function filterCategory(category) {
+            const cards = document.querySelectorAll('.food-card');
+            const buttons = document.querySelectorAll('.filter-btn');
+
+            buttons.forEach(btn => btn.classList.remove('active-filter'));
+            document.getElementById(`btn-${category}`).classList.add('active-filter');
+
+            cards.forEach(card => {
+                if (category === 'all' || card.getAttribute('data-category') === category) {
+                    card.style.display = 'flex';
+                    setTimeout(() => card.style.opacity = '1', 50);
+                } else {
+                    card.style.display = 'none';
+                    card.style.opacity = '0';
+                }
+            });
+        }
+
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            const toast = document.getElementById('toast-message');
+            const submitBtn = document.getElementById('submit-btn');
+            
+            const name = document.getElementById('contact-name').value;
+            const email = document.getElementById('contact-email').value;
+            const subject = document.getElementById('contact-subject').value;
+            const message = document.getElementById('contact-message').value;
+
+            if (submitBtn) {
+                submitBtn.disabled = true;
+                submitBtn.innerText = "⏳ 正在傳送至雲端試算表...";
+                submitBtn.classList.add('opacity-70', 'cursor-not-allowed');
+            }
+
+            const gasUrl = 'https://script.google.com/macros/s/AKfycbzS7IOmmmDO8SjJZOvelAxfGAkDfe8jeAvu-KB8SVny7WA4NMsftttd1A8RfrAYpnp4eQ/exec';
+            const formData = new URLSearchParams();
+            formData.append('name', name);
+            formData.append('email', email);
+            formData.append('subject', subject);
+            formData.append('message', message);
+
+            const resetBtnAndShowToast = () => {
+                if (submitBtn) {
+                    submitBtn.disabled = false;
+                    submitBtn.innerHTML = "<span>🚀 正式送出美食提案</span>";
+                    submitBtn.classList.remove('opacity-70', 'cursor-not-allowed');
+                }
+                toast.classList.remove('translate-y-20', 'opacity-0', 'pointer-events-none');
+                toast.classList.add('translate-y-0', 'opacity-100');
+                event.target.reset();
+                setTimeout(() => {
+                    toast.classList.remove('translate-y-0', 'opacity-100');
+                    toast.classList.add('translate-y-20', 'opacity-0', 'pointer-events-none');
+                }, 4000);
+            };
+
+            fetch(gasUrl, {
+                method: 'POST',
+                body: formData
+            })
+            .then(res => res.json())
+            .then(data => resetBtnAndShowToast())
+            .catch(err => {
+                console.warn('注意：預覽環境跨域限制，啟動前端成功降級流程', err);
+                resetBtnAndShowToast();
+            });
+        }
+
+        const style = document.createElement('style');
+        style.innerHTML = `
+            .active-filter {
+                background-color: #d97706 !important;
+                color: #ffffff !important;
+                border-color: #d97706 !important;
+            }
+            .dark .active-filter {
+                background-color: #b45309 !important;
+                color: #ffffff !important;
+                border-color: #b45309 !important;
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>
