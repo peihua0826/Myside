@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>金山與萬里兩天一夜深度旅遊規劃</title>
+    <!-- 引入 Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- 引入可愛的 Google 字體：Kiwi Maru (適合繁體中文的圓潤字體) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kiwi+Maru:wght@300;400;500&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'cute': ['"Kiwi Maru"', 'sans-serif'],
+                    },
+                    colors: {
+                        'pastel-pink': '#FFE4E1',
+                        'pastel-blue': '#D4F0F0',
+                        'pastel-yellow': '#FFF9C4',
+                        'pastel-green': '#E8F5E9',
+                        'pastel-purple': '#E1BEE7'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #FFF5F7; /* 淺淺的草莓牛奶底色 */
+            background-image: radial-gradient(#FFD1DC 2px, transparent 2px);
+            background-size: 30px 30px;
+        }
+        
+        /* 增加懸浮跳動動畫 */
+        .hover-float {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .hover-float:hover {
+            transform: translateY(-8px) rotate(1deg);
+            box-shadow: 0 15px 30px -5px rgba(255, 182, 193, 0.5);
+        }
+
+        /* 標題閃爍特效 */
+        @keyframes gentle-bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
+        }
+        .animate-bounce-slow {
+            animation: gentle-bounce 3s infinite ease-in-out;
+        }
+
+        /* 自訂可愛滾動條 */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #FFF5F7;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #FFB6C1;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #FF9AA2;
+        }
+    </style>
+</head>
+<body class="font-cute text-gray-700 overflow-x-hidden p-4 md:p-8">
+
+    <!-- 頁面容器 -->
+    <div class="max-w-4xl mx-auto">
+        
+        <!-- 頂部標題區 -->
+        <header class="text-center mb-12 animate-bounce-slow relative">
+            <div class="absolute -top-6 left-4 text-4xl transform -rotate-12 opacity-80">🌸</div>
+            <div class="absolute top-4 right-8 text-4xl transform rotate-12 opacity-80">🦀</div>
+            
+            <h1 class="text-4xl md:text-5xl font-bold text-pink-500 mb-4 drop-shadow-md">
+                ✨ 金山與萬里 ✨ <br>
+                <span class="text-2xl md:text-3xl text-blue-400 mt-2 block">兩天一夜深度小旅行 🎒</span>
+            </h1>
+            <p class="text-lg text-gray-600 bg-white inline-block px-6 py-2 rounded-full shadow-sm border-2 border-pink-200">
+                結合在地風土與秘境咖啡廳的豐富旅程 🌊☕
+            </p>
+        </header>
+
+        <!-- 首圖 -->
+        <div class="mb-12 rounded-3xl overflow-hidden shadow-xl border-4 border-white transform rotate-1 hover:rotate-0 transition-transform duration-300">
+            <img src="https://images.unsplash.com/photo-1549479361-b7d60ba10c92?auto=format&fit=crop&q=80&w=900&h=400" alt="北海岸海景" class="w-full h-auto object-cover">
+        </div>
+
+        <p class="text-center text-gray-700 mb-10 bg-white/80 p-6 rounded-2xl shadow-sm border border-pink-100 leading-relaxed text-lg">
+            台灣北海岸的金山與萬里地區，已經從傳統的漁業聚落，成功轉型為兼具地質景觀、百年溫泉、海洋飲食文化與現代藝術地標的綜合型觀光帶！跟著我們一起出發吧！🚗💨
+        </p>
+
+        <!-- 行程 Day 1 -->
+        <section class="mb-16 relative">
+            <div class="absolute -left-6 top-0 text-5xl z-10">☀️</div>
+            <div class="bg-pastel-blue rounded-3xl p-6 md:p-8 shadow-lg border-4 border-white relative z-0">
+                <h2 class="text-2xl md:text-3xl font-bold text-blue-700 mb-6 flex items-center border-b-2 border-blue-200 pb-3">
+                    <span class="bg-blue-500 text-white rounded-full w-10 h-10 flex items-center justify-center mr-3 shadow-md">1</span>
+                    Day 1：藝術地景、歷史聚落與百年湯泉
+                </h2>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <!-- 行程項目 -->
+                    <div class="bg-white rounded-2xl p-5 shadow-sm hover-float">
+                        <h3 class="text-xl font-bold text-pink-500 mb-2">🎨 【上午】 朱銘美術館</h3>
+                        <p class="text-gray-600 mb-4 text-sm">漫步於全台最大戶外美術館，欣賞《太極》系列完美融入金山山林景觀。</p>
+                        <img src="https://images.unsplash.com/photo-1563062080-60b69fb66c61?auto=format&fit=crop&q=80&w=400&h=250" alt="朱銘美術館" class="rounded-xl w-full object-cover">
+                    </div>
+
+                    <div class="bg-white rounded-2xl p-5 shadow-sm hover-float">
+                        <h3 class="text-xl font-bold text-orange-500 mb-2">🦆 【中午】 金包里老街</h3>
+                        <p class="text-gray-600 mb-4 text-sm">體驗廣安宮前「金包里鴨肉ㄜˋ」的自助端菜文化，餐後品嚐大芋圓！</p>
+                        <img src="https://images.unsplash.com/photo-1576400938663-8a3014a60155?auto=format&fit=crop&q=80&w=400&h=250" alt="金包里老街" class="rounded-xl w-full object-cover">
+                    </div>
+
+                    <div class="bg-white rounded-2xl p-5 shadow-sm hover-float">
+                        <h3 class="text-xl font-bold text-green-500 mb-2">⛰️ 【下午】 獅頭山公園</h3>
+                        <p class="text-gray-600 mb-4 text-sm">走訪前軍事管制區，登高中正亭遠眺絕美的海蝕柱地標「燭臺雙嶼」。</p>
+                        <img src="https://images.unsplash.com/photo-1508602697855-3d96fa34d588?auto=format&fit=crop&q=80&w=400&h=250" alt="獅頭山公園" class="rounded-xl w-full object-cover">
+                    </div>
+
+                    <div class="bg-white rounded-2xl p-5 shadow-sm hover-float">
+                        <h3 class="text-xl font-bold text-purple-500 mb-2">☕ 【傍晚】 磺港漁港咖啡廳</h3>
+                        <p class="text-gray-600 mb-4 text-sm">在「貪心咖啡館」休憩，感受獨特的靜謐漁村與百年蹦火仔歷史氛圍。</p>
+                        <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&q=80&w=400&h=250" alt="漁港咖啡廳" class="rounded-xl w-full object-cover">
+                    </div>
+
+                    <div class="bg-white rounded-2xl p-5 shadow-sm hover-float md:col-span-2 md:flex items-center gap-6">
+                        <div class="md:w-1/2">
+                            <h3 class="text-xl font-bold text-red-400 mb-2">♨️ 【夜晚】 舊金山總督溫泉</h3>
+                            <p class="text-gray-600 mb-4 text-sm">在冷涼海風吹拂後，浸泡於富含鐵質的黃金海底溫泉，洗滌一日的疲勞，超級享受！</p>
+                        </div>
+                        <img src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&q=80&w=400&h=250" alt="溫泉" class="rounded-xl md:w-1/2 w-full object-cover h-full min-h-[200px]">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 行程 Day 2 -->
+        <section class="mb-16 relative">
+            <div class="absolute -right-4 top-0 text-5xl z-10 transform rotate-12">🌊</div>
+            <div class="bg-pastel-pink rounded-3xl p-6 md:p-8 shadow-lg border-4 border-white relative z-0">
+                <h2 class="text-2xl md:text-3xl font-bold text-pink-700 mb-6 flex items-center border-b-2 border-pink-200 pb-3">
+                    <span class="bg-pink-500 text-white rounded-full w-10 h-10 flex items-center justify-center mr-3 shadow-md">2</span>
+                    Day 2：地質奇觀、海洋經濟與秘境尋幽
+                </h2>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="bg-white rounded-2xl p-5 shadow-sm hover-float">
+                        <h3 class="text-xl font-bold text-orange-600 mb-2">👑 【上午】 野柳地質公園</h3>
+                        <p class="text-gray-600 mb-4 text-sm">見證大航海時代的「魔鬼岬角」，尋找經典的女王頭與俏皮公主等奇觀。</p>
+                        <img src="https://images.unsplash.com/photo-1518002636605-64582f3efef3?auto=format&fit=crop&q=80&w=400&h=250" alt="野柳" class="rounded-xl w-full object-cover">
+                    </div>
+
+                    <div class="bg-white rounded-2xl p-5 shadow-sm hover-float">
+                        <h3 class="text-xl font-bold text-red-500 mb-2">🦀 【中午】 龜吼漁夫市集</h3>
+                        <p class="text-gray-600 mb-4 text-sm">前往萬里蟹產地直銷樞紐，挑選現撈海產（花蟹、三點蟹）並代客料理。</p>
+                        <img src="https://images.unsplash.com/photo-1557008137-b6f7a77e5eaf?auto=format&fit=crop&q=80&w=400&h=250" alt="萬里蟹" class="rounded-xl w-full object-cover">
+                    </div>
+
+                    <div class="bg-white rounded-2xl p-5 shadow-sm hover-float">
+                        <h3 class="text-xl font-bold text-blue-500 mb-2">🍰 【午後】 山海芳園景觀咖啡</h3>
+                        <p class="text-gray-600 mb-4 text-sm">來到國聖埔海防陣地活化改建的秘境咖啡，享受海景第一排的下午茶。</p>
+                        <img src="https://images.unsplash.com/photo-1497935586351-b67a49e012bf?auto=format&fit=crop&q=80&w=400&h=250" alt="海景咖啡" class="rounded-xl w-full object-cover">
+                    </div>
+
+                    <div class="bg-white rounded-2xl p-5 shadow-sm hover-float">
+                        <h3 class="text-xl font-bold text-yellow-500 mb-2">🌽 【傍晚】 泡足湯吃烤玉米</h3>
+                        <p class="text-gray-600 mb-4 text-sm">浸泡免費的大鵬足湯公園美人腿足湯，並帶上北海岸必吃知味鄉烤玉米！</p>
+                        <img src="https://images.unsplash.com/photo-1627914101111-2eb2ceee0e63?auto=format&fit=crop&q=80&w=400&h=250" alt="烤玉米" class="rounded-xl w-full object-cover">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 導航資訊表格 (設計成可愛便條紙風格) -->
+        <section class="mb-10">
+            <div class="bg-pastel-yellow rounded-3xl p-6 md:p-8 shadow-lg border-4 border-white transform -rotate-1 relative">
+                <div class="absolute top-4 left-1/2 transform -translate-x-1/2 w-32 h-6 bg-pink-200/60 rounded-full shadow-inner z-10 -mt-8"></div> <!-- 膠帶效果 -->
+                
+                <h2 class="text-2xl font-bold text-yellow-800 mb-6 text-center">🗺️ 景點與餐廳導航傳送門</h2>
+                
+                <div class="overflow-x-auto rounded-xl">
+                    <table class="w-full text-left border-collapse bg-white rounded-xl overflow-hidden">
+                        <thead>
+                            <tr class="bg-yellow-200 text-yellow-800">
+                                <th class="p-4 font-bold border-b border-yellow-300">場域名稱 📍</th>
+                                <th class="p-4 font-bold border-b border-yellow-300">營運時間 🕒</th>
+                                <th class="p-4 font-bold border-b border-yellow-300 text-center">導航 🚗</th>
+                            </tr>
+                        </thead>
+                        <tbody class="text-gray-700">
+                            <tr class="hover:bg-yellow-50 transition-colors border-b border-gray-100">
+                                <td class="p-4 font-medium">朱銘美術館</td>
+                                <td class="p-4">10:00-17:00（每週一休館）</td>
+                                <td class="p-4 text-center"><a href="https://www.google.com/maps/search/?api=1&query=朱銘美術館" target="_blank" class="inline-block bg-pink-400 text-white px-4 py-1 rounded-full text-sm font-bold hover:bg-pink-500 hover:shadow-md transition-all">Go!</a></td>
+                            </tr>
+                            <tr class="hover:bg-yellow-50 transition-colors border-b border-gray-100">
+                                <td class="p-4 font-medium">金包里鴨肉ㄜˋ</td>
+                                <td class="p-4">10:00-18:00（假日 09:00 開始）</td>
+                                <td class="p-4 text-center"><a href="https://www.google.com/maps/search/?api=1&query=金包里鴨肉" target="_blank" class="inline-block bg-pink-400 text-white px-4 py-1 rounded-full text-sm font-bold hover:bg-pink-500 hover:shadow-md transition-all">Go!</a></td>
+                            </tr>
+                            <tr class="hover:bg-yellow-50 transition-colors border-b border-gray-100">
+                                <td class="p-4 font-medium">獅頭山公園</td>
+                                <td class="p-4">24小時開放</td>
+                                <td class="p-4 text-center"><a href="https://www.google.com/maps/search/?api=1&query=獅頭山公園" target="_blank" class="inline-block bg-pink-400 text-white px-4 py-1 rounded-full text-sm font-bold hover:bg-pink-500 hover:shadow-md transition-all">Go!</a></td>
+                            </tr>
+                            <tr class="hover:bg-yellow-50 transition-colors border-b border-gray-100">
+                                <td class="p-4 font-medium">舊金山總督溫泉</td>
+                                <td class="p-4">09:00-23:00（餐廳週三、四休）</td>
+                                <td class="p-4 text-center"><a href="https://www.google.com/maps/search/?api=1&query=舊金山總督溫泉" target="_blank" class="inline-block bg-pink-400 text-white px-4 py-1 rounded-full text-sm font-bold hover:bg-pink-500 hover:shadow-md transition-all">Go!</a></td>
+                            </tr>
+                            <tr class="hover:bg-yellow-50 transition-colors border-b border-gray-100">
+                                <td class="p-4 font-medium">野柳地質公園</td>
+                                <td class="p-4">08:00-17:00</td>
+                                <td class="p-4 text-center"><a href="https://www.google.com/maps/search/?api=1&query=野柳地質公園" target="_blank" class="inline-block bg-pink-400 text-white px-4 py-1 rounded-full text-sm font-bold hover:bg-pink-500 hover:shadow-md transition-all">Go!</a></td>
+                            </tr>
+                            <tr class="hover:bg-yellow-50 transition-colors border-b border-gray-100">
+                                <td class="p-4 font-medium">龜吼漁夫市集</td>
+                                <td class="p-4">約 10:00-19:00</td>
+                                <td class="p-4 text-center"><a href="https://www.google.com/maps/search/?api=1&query=龜吼漁夫市集" target="_blank" class="inline-block bg-pink-400 text-white px-4 py-1 rounded-full text-sm font-bold hover:bg-pink-500 hover:shadow-md transition-all">Go!</a></td>
+                            </tr>
+                            <tr class="hover:bg-yellow-50 transition-colors">
+                                <td class="p-4 font-medium">山海芳園景觀咖啡</td>
+                                <td class="p-4">10:30-18:00（每週三休館）</td>
+                                <td class="p-4 text-center"><a href="https://www.google.com/maps/search/?api=1&query=山海芳園景觀咖啡廳" target="_blank" class="inline-block bg-pink-400 text-white px-4 py-1 rounded-full text-sm font-bold hover:bg-pink-500 hover:shadow-md transition-all">Go!</a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p class="text-xs text-yellow-600 mt-4 text-center">※ 建議出發前再次確認各店家的營運時間喔！</p>
+            </div>
+        </section>
+        
+        <!-- 頁尾 -->
+        <footer class="text-center py-6 text-gray-500 text-sm">
+            <p>Made with ❤️ for your perfect trip to Jinshan & Wanli.</p>
+        </footer>
+
+    </div>
+</body>
+</html>

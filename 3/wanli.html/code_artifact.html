@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🌸 我的可愛金山萬里之旅 🌸</title>
+    <!-- Tailwind CSS for modern responsive utility styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        pastelPink: '#fff0f5',
+                        cardPink: '#ffe4e1',
+                        brandPink: '#ff82ab',
+                        brandRed: '#ff6a6a',
+                    },
+                    fontFamily: {
+                        sans: ['微軟正黑體', 'Comic Sans MS', 'cursive', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
+        }
+        .floating-card {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .floating-card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 20px 30px -10px rgba(255, 130, 171, 0.3);
+        }
+        .custom-scroll::-webkit-scrollbar {
+            height: 8px;
+        }
+        .custom-scroll::-webkit-scrollbar-track {
+            background: #ffe4e1;
+            border-radius: 9999px;
+        }
+        .custom-scroll::-webkit-scrollbar-thumb {
+            background: #ff82ab;
+            border-radius: 9999px;
+        }
+    </style>
+</head>
+<body class="bg-pastelPink text-gray-600 min-h-screen p-4 sm:p-8 flex flex-col items-center">
+
+    <!-- 容器主體 -->
+    <div class="w-full max-w-4xl bg-white rounded-[30px] p-6 sm:p-12 shadow-xl border-4 border-pink-100">
+        
+        <!-- 頁首標題區 -->
+        <header class="text-center mb-10">
+            <span class="inline-block px-4 py-1.5 mb-3 bg-pink-100 text-brandPink rounded-full text-sm font-bold tracking-wider animate-bounce">
+                ✨ 療癒系北海岸輕旅行札記 ✨
+            </span>
+            <h1 class="text-3xl sm:text-5xl font-extrabold text-brandPink mb-3 tracking-wide drop-shadow-sm">
+                🌸 專屬我的金山與萬里小旅行 🌸
+            </h1>
+            <p class="text-gray-500 text-base sm:text-lg font-medium">
+                漫步金山老街尋味，享受萬里蔚藍海岸的休閒與浪漫時光！
+            </p>
+        </header>
+
+        <!-- 互動相片藝廊分類標籤 -->
+        <div class="flex flex-wrap justify-center gap-2 mb-8" id="filter-buttons">
+            <button onclick="filterGallery('all')" class="filter-btn active-tab px-4 py-2 rounded-full text-sm font-bold bg-brandPink text-white shadow-md transition transform hover:scale-105">全部景點</button>
+            <button onclick="filterGallery('jinshan')" class="filter-btn px-4 py-2 rounded-full text-sm font-bold bg-pink-100 text-brandPink hover:bg-brandPink hover:text-white shadow-md transition transform hover:scale-105">🏮 金山老街巡禮</button>
+            <button onclick="filterGallery('wanli')" class="filter-btn px-4 py-2 rounded-full text-sm font-bold bg-pink-100 text-brandPink hover:bg-brandPink hover:text-white shadow-md transition transform hover:scale-105">☕ 萬里海景海岸</button>
+        </div>
+
+        <!-- 景點卡片網格 -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 mb-12" id="gallery-grid">
+            
+            <!-- 卡片 1: 金山老街 (金包里老街 - 鴨肉店) -->
+            <div class="card-item jinshan bg-cardPink rounded-[24px] p-5 shadow-md floating-card flex flex-col justify-between border-2 border-pink-200">
+                <div class="relative overflow-hidden rounded-[18px] group">
+                    <img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=700&q=80" 
+                         alt="金山老街街道風貌" 
+                         onerror="this.src='https://placehold.co/600x400/ffe4e1/ff6a6a?text=Jinshan+Old+Street'"
+                         class="w-full h-56 object-cover rounded-[18px] transition duration-500 group-hover:scale-110">
+                    <div class="absolute top-3 right-3 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-bold text-brandRed shadow">
+                        🏮 金山老街
+                    </div>
+                </div>
+                <div class="mt-4 flex-1 flex flex-col justify-between">
+                    <div>
+                        <h3 class="text-xl font-bold text-brandRed mb-2">金包里老街與金山鴨肉</h3>
+                        <p class="text-gray-600 text-sm sm:text-base leading-relaxed">
+                            品嚐人氣爆棚的金山鴨肉與美味古早味小吃，穿梭在紅磚拱廊下感受百年老街的熱鬧與人情味。
+                        </p>
+                    </div>
+                    <div class="mt-4 flex items-center justify-between pt-3 border-t border-pink-200/60">
+                        <span class="text-xs text-brandPink font-bold">📍 金山區．百年老街</span>
+                        <button onclick="openModal('金包里老街與古早味巡禮', 'https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=700&q=80', '金山老街充滿了懷舊的古早味，廟口自助端金山鴨肉的體驗特別有趣又美味，漫步老街巷弄更是令人流連忘返！')" class="text-xs bg-white text-brandRed px-3 py-1.5 rounded-full font-bold shadow hover:bg-brandRed hover:text-white transition">
+                            查看回憶 ✨
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 卡片 2: 舊金山總督溫泉 -->
+            <div class="card-item jinshan bg-cardPink rounded-[24px] p-5 shadow-md floating-card flex flex-col justify-between border-2 border-pink-200">
+                <div class="relative overflow-hidden rounded-[18px] group">
+                    <img src="https://images.unsplash.com/photo-1584132967334-10e028bd69f7?auto=format&fit=crop&w=700&q=80" 
+                         alt="舊金山總督溫泉" 
+                         onerror="this.src='https://placehold.co/600x400/ffe4e1/ff6a6a?text=Governor+Hot+Spring'"
+                         class="w-full h-56 object-cover rounded-[18px] transition duration-500 group-hover:scale-110">
+                    <div class="absolute top-3 right-3 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-bold text-brandRed shadow">
+                        🏛️ 總督溫泉
+                    </div>
+                </div>
+                <div class="mt-4 flex-1 flex flex-col justify-between">
+                    <div>
+                        <h3 class="text-xl font-bold text-brandRed mb-2">舊金山總督溫泉歷史風華</h3>
+                        <p class="text-gray-600 text-sm sm:text-base leading-relaxed">
+                            日治時期曾為總督所用之溫泉招待所，融合西班牙風格建築與珍貴海底黃金溫泉，泡湯兼賞無敵海景。
+                        </p>
+                    </div>
+                    <div class="mt-4 flex items-center justify-between pt-3 border-t border-pink-200/60">
+                        <span class="text-xs text-brandPink font-bold">📍 金山區．百年溫泉建築</span>
+                        <button onclick="openModal('舊金山總督溫泉回憶', 'https://images.unsplash.com/photo-1584132967334-10e028bd69f7?auto=format&fit=crop&w=700&q=80', '舊金山總督溫泉保留了優雅的歷史建築外觀，泡在富含礦物質的溫泉中遠眺蔚藍大海，感覺心靈都被滋潤了！')" class="text-xs bg-white text-brandRed px-3 py-1.5 rounded-full font-bold shadow hover:bg-brandRed hover:text-white transition">
+                            查看回憶 ✨
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 卡片 3: 萬里海景咖啡廳 -->
+            <div class="card-item wanli bg-cardPink rounded-[24px] p-5 shadow-md floating-card flex flex-col justify-between border-2 border-pink-200">
+                <div class="relative overflow-hidden rounded-[18px] group">
+                    <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=700&q=80" 
+                         alt="萬里海景咖啡" 
+                         onerror="this.src='https://placehold.co/600x400/ffe4e1/ff6a6a?text=Wanli+Ocean+Cafe'"
+                         class="w-full h-56 object-cover rounded-[18px] transition duration-500 group-hover:scale-110">
+                    <div class="absolute top-3 right-3 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-bold text-brandRed shadow">
+                        ☕ 萬里海景
+                    </div>
+                </div>
+                <div class="mt-4 flex-1 flex flex-col justify-between">
+                    <div>
+                        <h3 class="text-xl font-bold text-brandRed mb-2">萬里蔚藍海景咖啡放空</h3>
+                        <p class="text-gray-600 text-sm sm:text-base leading-relaxed">
+                            面對著一望無際的碧海藍天與白色沙灘，聽著療癒的海浪聲，喝杯香濃拿鐵與精緻下午茶，徹底放鬆身心。
+                        </p>
+                    </div>
+                    <div class="mt-4 flex items-center justify-between pt-3 border-t border-pink-200/60">
+                        <span class="text-xs text-brandPink font-bold">📍 萬里區．湛藍海岸</span>
+                        <button onclick="openModal('萬里海景咖啡', 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=700&q=80', '坐在靠窗的搖滾區座位，望著萬里絕美的藍色海灣與徐徐海風，度過了無憂無慮的完美午後時光！')" class="text-xs bg-white text-brandRed px-3 py-1.5 rounded-full font-bold shadow hover:bg-brandRed hover:text-white transition">
+                            查看回憶 ✨
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- 互動留言心願區 -->
+        <div class="bg-pink-50 rounded-[25px] p-6 sm:p-8 border-2 border-pink-200 mb-8 text-left">
+            <h3 class="text-xl font-bold text-brandPink mb-3 text-center">💌 留下你的旅行心願與留言</h3>
+            <div class="flex flex-col sm:flex-row gap-3">
+                <input type="text" id="wish-input" placeholder="輸入你想說的話或下次想去的金山萬里景點..." class="flex-1 px-4 py-3 rounded-2xl border border-pink-200 focus:outline-none focus:ring-2 focus:ring-brandPink bg-white text-sm">
+                <button onclick="addWish()" class="bg-brandPink hover:bg-pink-600 text-white font-bold px-6 py-3 rounded-2xl shadow transition transform hover:scale-105 text-sm">
+                    送出心願 🌸
+                </button>
+            </div>
+            <div id="wish-list" class="mt-4 flex flex-wrap gap-2">
+                <!-- 動態新增留言 -->
+                <span class="inline-block bg-white text-gray-600 px-3 py-1.5 rounded-full text-xs shadow-sm border border-pink-100">✨ 金山鴨肉真的太美味了！</span>
+                <span class="inline-block bg-white text-gray-600 px-3 py-1.5 rounded-full text-xs shadow-sm border border-pink-100">🌊 下次還要再去萬里看海喝咖啡～</span>
+            </div>
+        </div>
+
+        <!-- 頁尾 -->
+        <footer class="text-center pt-6 border-t border-pink-100 text-gray-400 text-sm">
+            美好回憶紀錄 &copy; 2026 🌸 Designed with Love for Jinshan & Wanli Trip
+        </footer>
+
+    </div>
+
+    <!-- 彈跳細節視窗 Modal -->
+    <div id="memory-modal" class="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-[30px] max-w-md w-full p-6 sm:p-8 shadow-2xl relative border-4 border-pink-100 animate-in fade-in zoom-in duration-200">
+            <button onclick="closeModal()" class="absolute top-4 right-4 bg-gray-100 hover:bg-brandPink hover:text-white w-8 h-8 rounded-full flex items-center justify-center text-gray-500 font-bold transition">
+                ✕
+            </button>
+            <h3 id="modal-title" class="text-2xl font-bold text-brandPink mb-4">標題</h3>
+            <img id="modal-img" src="" alt="回憶照片" class="w-full h-48 object-cover rounded-2xl mb-4 shadow-md" onerror="this.src='https://placehold.co/600x400/ffe4e1/ff6a6a?text=Memory+Photo'">
+            <p id="modal-desc" class="text-gray-600 text-base leading-relaxed mb-6">詳細內文描述...</p>
+            <div class="text-center">
+                <button onclick="closeModal()" class="bg-brandPink text-white font-bold px-6 py-2.5 rounded-full shadow hover:bg-pink-600 transition">
+                    珍藏這段回憶 💕
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript互動邏輯 -->
+    <script>
+        // 篩選景點功能
+        function filterGallery(category) {
+            const cards = document.querySelectorAll('.card-item');
+            const buttons = document.querySelectorAll('#filter-buttons button');
+
+            // 切換按鈕樣式
+            buttons.forEach(btn => {
+                btn.classList.remove('bg-brandPink', 'text-white');
+                btn.classList.add('bg-pink-100', 'text-brandPink');
+            });
+            event.target.classList.remove('bg-pink-100', 'text-brandPink');
+            event.target.classList.add('bg-brandPink', 'text-white');
+
+            // 顯示/隱藏卡片
+            cards.forEach(card => {
+                if (category === 'all' || card.classList.contains(category)) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        // 開啟彈跳視窗
+        function openModal(title, imgSrc, desc) {
+            document.getElementById('modal-title').innerText = title;
+            document.getElementById('modal-img').src = imgSrc;
+            document.getElementById('modal-desc').innerText = desc;
+            document.getElementById('memory-modal').classList.remove('hidden');
+        }
+
+        // 關閉彈跳視窗
+        function closeModal() {
+            document.getElementById('memory-modal').classList.add('hidden');
+        }
+
+        // 新增願望留言
+        function addWish() {
+            const input = document.getElementById('wish-input');
+            const wishList = document.getElementById('wish-list');
+            const text = input.value.trim();
+
+            if (text !== '') {
+                const tag = document.createElement('span');
+                tag.className = 'inline-block bg-white text-gray-600 px-3 py-1.5 rounded-full text-xs shadow-sm border border-pink-100 animate-pulse';
+                tag.innerText = '🌸 ' + text;
+                wishList.appendChild(tag);
+                input.value = '';
+            }
+        }
+    </script>
+</body>
+</html>
